@@ -16,10 +16,7 @@ CREATE TABLE toys (
 
 async function main(){
   const client = new Client({
-    connectionString: process.env.DATABASE_PUBLIC_URL,
-    ssl: {
-      rejectUnauthorized: false, 
-    },
+    connectionString: `postgresql://${process.env.USER}:${process.env.PASSWORD}@${process.env.HOST_NAME}:${process.env.PORT}/${process.env.DATABASE}`
   });
   await client.connect();
   await client.query(SQL);
