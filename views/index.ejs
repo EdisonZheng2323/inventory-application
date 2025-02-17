@@ -3,6 +3,8 @@
   <% categories.forEach((category, index) => { %> 
   <p> <%= category.category_name %> </p> 
   <a href = "/<%= category.category_name %>"> Expand Category </a>
+  <a href = "/<%= category.category_name %>/delete"> Delete Category </a>
+  <a href = "/<%= category.category_name %>/update"> Update Category</a>
   <% }) %>
 </body>
 <br> <br> <br> 

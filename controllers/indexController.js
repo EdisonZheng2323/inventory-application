@@ -5,6 +5,42 @@ async function getCategories(req, res){
   res.render("index", {categories: categories});
 }
 
+async function deleteCategoryAndToys(req, res){
+  const category_name = req.params.category_name;
+  const id = await db.getCategoryId(category_name);
+  await db.deleteAllToys(id);
+  await db.deleteCategory(id);
+  res.redirect("/");
+}
+
+async function updateCategoryGet(req, res){
+  const category_name = req.params.category_name;
+  res.render("categoryUpdateForm", {category_name: category_name});
+}
+
+async function updateCategoryPost(req, res){
+  const old_category_name = req.params.category_name;
+  const {name} = req.body;
+  await db.updateCategory(old_category_name, name);
+  res.redirect("/");
+}
+
+async function updateToyGet(req, res){
+  const category_name = req.params.category_name;
+  const toy_name = req.params.toy_name;
+  const id = await db.getCategoryId(category_name);
+  const toy = await db.getToyData(id, toy_name);
+  res.render("toyUpdateForm", {category_name: category_name, toy: toy});
+}
+
+async function updateToyPost(req, res){
+  const {toy_name, toy_price} = req.body;
+  const category_name = req.params.category_name;
+  const id = await db.getCategoryId(category_name);
+  await db.updateToy(id, toy_name, toy_price);
+  res.redirect(`/${category_name}`);
+}
+
 async function deleteToy(req, res){
   const category_name = req.params.category_name;
   const toy_name = req.params.toy_name;
@@ -59,5 +95,10 @@ module.exports = {
   createToyGet, 
   createToyPost,
   expandToy,
-  deleteToy
+  deleteToy,
+  deleteCategoryAndToys,
+  updateCategoryGet,
+  updateCategoryPost,
+  updateToyGet,
+  updateToyPost
 }

@@ -1,0 +1,8 @@
+<h1> Toy Form </h1>
+<form method = "POST" action = "/<%= category_name %>/<%= toy[0].name %>/update"> 
+  <label for = "toy_name"> Enter Toy Name: </label>
+  <input type = "text" id = "toy_name" name = "toy_name" value = "<%= toy[0].name %>">
+  <label for = "toy_price"> Enter Price: </label>
+  <input type = "number" id = "toy_price" name = "toy_price" value = "<%= toy[0].price %>">
+  <button type = "submit"> Update </button>
+</form>
