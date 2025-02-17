@@ -16,7 +16,7 @@ CREATE TABLE toys (
 
 async function main(){
   const client = new Client({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: process.env.DATABASE_PUBLIC_URL,
     ssl: {
       rejectUnauthorized: false, 
     },
