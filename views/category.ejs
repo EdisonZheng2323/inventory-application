@@ -1,5 +1,5 @@
 <h1> <%= category_name %> </h1>
-<body>
+<body> 
   <% toys.forEach((toy, index) => { %> 
   <p> Name: <%= toy.name %> <br> Price: $<%= toy.price %> <br> </p> 
   <a href = "/<%= category_name %>/<%= toy.name %>"> Expand Toy </a>
