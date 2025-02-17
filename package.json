@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/EdisonZheng2323/inventory-application/issues"
   },
-  "homepage": "https://github.com/EdisonZheng2323/inventory-application#readme"
+  "homepage": "https://github.com/EdisonZheng2323/inventory-application#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
 }
